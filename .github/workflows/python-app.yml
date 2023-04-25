@@ -31,7 +31,7 @@ jobs:
             USER_NAME: ${{ secrets.USER_NAME }}
             PASSWORD: ${{ secrets.PASSWORD }}
         run: | 
-          pytest -s -v 
+          pytest -s -v --alluredir=allure-results
         continue-on-error: true
         
       - name: Get Allure history
