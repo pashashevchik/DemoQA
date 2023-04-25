@@ -31,8 +31,7 @@ jobs:
         env:
             USER_NAME: ${{ secrets.USER_NAME }}
             PASSWORD: ${{ secrets.PASSWORD }}
-        run: | 
-          pytest --alluredir=allure-results
+        run: pytest -s -v --alluredir=allure-results
         continue-on-error: true
         
       - name: Get Allure history
@@ -46,11 +45,8 @@ jobs:
       - name: Allure report 
         uses: simple-elf/allure-report-action@master
         if: always()
-        id: allure-report
         with:
-            allure_results: build/allure-results
-            gh_pages: gh-pages
-            allure_report: allure-report
+            allure_results: allure-results
             allure_history: allure-history
             
       - name: Deploy report on GitHub page
