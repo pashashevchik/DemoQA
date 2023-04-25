@@ -6,11 +6,11 @@ from pages.base_page import BasePage
 from locators.book_store_app_locators import BookStoreAppPageLocators
 from generator.generator import generated_person
 from dotenv import load_dotenv
-load_dotenv()
 
 
 class LoginPage(BasePage):
     locators = BookStoreAppPageLocators()
+    load_dotenv()
 
     @allure.step("user authorization")
     def login_user(self):
