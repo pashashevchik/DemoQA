@@ -1,4 +1,4 @@
-name: DemoQA
+name: DemoQ
 
 on:
   push:
