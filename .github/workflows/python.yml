@@ -7,12 +7,6 @@ on:
   pull_request:
     branches:
     - main
-    
-permissions: read-all| write-all
-
-env:
-      USER_NAME: ${{ secrets.USER_NAME }}
-      PASSWORD: ${{ secrets.PASSWORD }}
 		
 jobs:
 	build:
@@ -32,6 +26,9 @@ jobs:
              if [-f requirements.txt]; then pip install -r requirements.txt; fi
              
       - name: Test with pytest
-        run: pytest
+				env:
+     			 USER_NAME: ${{ secrets.USER_NAME }}
+      		 PASSWORD: ${{ secrets.PASSWORD }}
+        run: -pytest
       
       
